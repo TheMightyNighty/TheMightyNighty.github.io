@@ -23,7 +23,7 @@
   },
   {
     "name": "SightMetrics",
-    "desc": "",
+    "desc": "Webseiten Analyse für Typo3 mit den wichtigsten Daten aus den Weserver Logs. Schnelle und effiziente Auswertung im Container und schlanke Backend Extension.",
     "lang": "Shell",
     "langColor": "#89e051",
     "url": "https://github.com/TheMightyNighty/SightMetrics",
