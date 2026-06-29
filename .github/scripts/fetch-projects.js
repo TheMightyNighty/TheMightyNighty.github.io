@@ -75,6 +75,17 @@ async function main() {
   const byName = {};
   allRepos.forEach(r => { byName[r.name] = r; });
 
+  // Check which repos have a custom screenshot in the screenshots/ folder.
+  const screenshotsDir = path.resolve(__dirname, '../../screenshots');
+  const screenshotExts = ['.png', '.jpg', '.jpeg', '.webp'];
+  function localScreenshot(repoName) {
+    for (const ext of screenshotExts) {
+      const file = path.join(screenshotsDir, repoName + ext);
+      if (fs.existsSync(file)) return `./screenshots/${repoName}${ext}`;
+    }
+    return null;
+  }
+
   const featured = FEATURED_REPOS
     .filter(name => {
       if (!byName[name]) { console.warn(`  ⚠ Repo "${name}" not found (private or deleted) — skipped.`); }
@@ -82,13 +93,15 @@ async function main() {
     })
     .map(name => {
       const r = byName[name];
+      const local = localScreenshot(r.name);
+      if (local) console.log(`  📸 Using local screenshot for "${r.name}": ${local}`);
       return {
         name:      r.name,
         desc:      r.description || '',
         lang:      r.language    || 'Other',
         langColor: LANG_COLORS[r.language] || FALLBACK_COLOR,
         url:       r.html_url,
-        ogUrl:     `https://opengraph.githubassets.com/1/${USERNAME}/${r.name}`,
+        ogUrl:     local || `https://opengraph.githubassets.com/1/${USERNAME}/${r.name}`,
         stars:     r.stargazers_count,
         forks:     r.forks_count,
         updatedAt: r.pushed_at,
