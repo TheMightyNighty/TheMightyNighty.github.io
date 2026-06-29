@@ -1,0 +1,24 @@
+[
+  {
+    "name": "jsonforms-designer",
+    "desc": "Visueller Editor für JSONForms-Schemas – erstellt UI-Schemata per Drag & Drop, ohne manuelles JSON-Schreiben.",
+    "lang": "TypeScript",
+    "langColor": "#4f9cf9",
+    "url": "https://github.com/TheMightyNighty/jsonforms-designer",
+    "ogUrl": "https://opengraph.githubassets.com/1/TheMightyNighty/jsonforms-designer",
+    "stars": 0,
+    "forks": 0,
+    "updatedAt": "2026-01-01T00:00:00Z"
+  },
+  {
+    "name": "ImpExpNL",
+    "desc": "Modernisierte Import/Export-Extension für Typo3. Wartbar gebaut, nicht hingefrickelt.",
+    "lang": "PHP",
+    "langColor": "#a78bfa",
+    "url": "https://github.com/TheMightyNighty/ImpExpNL",
+    "ogUrl": "https://opengraph.githubassets.com/1/TheMightyNighty/ImpExpNL",
+    "stars": 0,
+    "forks": 0,
+    "updatedAt": "2026-01-01T00:00:00Z"
+  }
+]

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html,body{margin:0;padding:0;background:#0c0f13;}
+  *{box-sizing:border-box;}
+  ::selection{background:#f59e0b33;color:#e7e9ec;}
+  .page-canvas{padding:48px 20px 64px;}
+  .page-card{max-width:960px;margin:0 auto;background:#111519;border:1px solid #1e242c;border-radius:12px;overflow:hidden;box-shadow:0 4px 48px rgba(0,0,0,.55);}
+  .project-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media(max-width:860px){.project-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.project-grid{grid-template-columns:1fr;}}
+  @media(max-width:1000px){
+    .page-canvas{padding:0;}
+    .page-card{border-radius:0;border-left:none;border-right:none;box-shadow:none;}
+  }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0c0f13"/><circle cx="50" cy="38" r="14" fill="#1a1f26" stroke="#f59e0b" stroke-width="2.5"/><rect x="26" y="62" width="48" height="4" rx="2" fill="#2a313b"/><rect x="26" y="72" width="32" height="3" rx="1.5" fill="#1e242c"/></svg></template>
+
+<div class="page-canvas" style="font-family:'Space Grotesk',system-ui,sans-serif;background:#0c0f13;color:#e7e9ec;min-height:100%;">
+<div class="page-card">
+
+  <!-- HEADER -->
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:28px 32px 0;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.04em;color:#c2c8d0;">TheMightyNighty</span>
+    <a href="https://github.com/TheMightyNighty" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:#1c0d00;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:9px 18px;border-radius:6px;" style-hover="background:#fcd34d;">GitHub ↗</a>
+  </header>
+
+  <!-- HERO -->
+  <section style="padding:56px 32px 48px;">
+    <div style="display:flex;align-items:flex-start;gap:32px;margin-bottom:40px;">
+      <div style="flex:0 0 auto;">
+        <div style="width:140px;height:140px;border-radius:50%;border:3px solid #f59e0b;overflow:hidden;box-shadow:0 0 0 6px #1e1a0e,0 8px 32px rgba(0,0,0,.5);">
+          <img src="https://avatars.githubusercontent.com/u/276687982?v=4" alt="Robert Schleiermacher" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        </div>
+      </div>
+      <div style="padding-top:16px;">
+        <h1 style="margin:0 0 6px;font-size:30px;font-weight:700;letter-spacing:-.01em;">Robert Schleiermacher</h1>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#8a99aa;letter-spacing:.04em;">The Mighty Nighty · Deutschland</div>
+      </div>
+    </div>
+    <p style="font-size:20px;line-height:1.55;color:#c2c8d0;margin:0 0 16px;font-weight:400;">Ich baue Open-Source-Werkzeuge – Formular-Editoren, Typo3-Extensions und was sonst noch fehlt.</p>
+    <p style="font-size:16px;line-height:1.65;color:#8a99aa;margin:0;">TypeScript, Go und PHP. Gelegentlich nachts.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section style="padding:0 32px 56px;border-top:1px solid #1a1f27;padding-top:40px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:24px;">Projekte</div>
+    <div class="project-grid" style="margin-bottom:20px;">
+      <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
+          <x-import component-from-global-scope="image-slot"
+            id="{{ r.name }}-img"
+            src="{{ r.ogUrl }}"
+            shape="rect"
+            fit="cover"
+            placeholder="Screenshot ablegen"
+            hint-size="100%,148px"
+            style="width:100%;height:148px;display:block;flex:0 0 auto;">
+          </x-import>
+          <div style="height:3px;background:{{ r.langColor }};flex:0 0 auto;"></div>
+          <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;text-decoration:none;color:#e7e9ec;flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+              <span style="font-size:14px;font-weight:600;letter-spacing:-.01em;line-height:1.2;">{{ r.name }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:{{ r.langColor }};letter-spacing:.08em;white-space:nowrap;flex:0 0 auto;">{{ r.lang }}</span>
+            </div>
+            <div style="font-size:13px;line-height:1.55;color:#8a99aa;flex:1;">{{ r.desc }}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#738494;letter-spacing:.06em;margin-top:2px;" style-hover="color:#f59e0b;">Repo ansehen →</div>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+    <a href="https://github.com/TheMightyNighty?tab=repositories" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#738494;text-decoration:none;letter-spacing:.06em;" style-hover="color:#c2c8d0;">Alle Repos ↗</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="padding:40px 32px 52px;border-top:1px solid #1a1f27;">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:18px;">Kontakt</div>
+        <p style="font-size:16px;line-height:1.6;color:#8a99aa;margin:0 0 24px;max-width:340px;">Fragen, Issues oder einfach schauen was gerade in Arbeit ist:</p>
+        <a href="https://github.com/TheMightyNighty" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;background:#1a1f26;border:1px solid #2a313b;border-radius:6px;padding:13px 20px;text-decoration:none;color:#c2c8d0;font-size:14px;font-weight:500;" style-hover="border-color:#f59e0b;color:#f59e0b;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="flex:0 0 auto;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/></svg>
+          github.com/TheMightyNighty
+        </a>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:88px;font-weight:700;color:#161b22;line-height:1;letter-spacing:-.04em;user-select:none;">RS</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:20px 32px 32px;border-top:1px solid #1a1f27;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#738494;letter-spacing:.06em;">© 2026 Robert Schleiermacher</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#738494;letter-spacing:.03em;">Software ohne Gewähr · Keine Haftung für Schäden aus der Nutzung</span>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1040,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { repos: null };
+
+  componentDidMount() {
+    fetch('./projects.json')
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null)
+      .then(data => {
+        if (Array.isArray(data) && data.length) {
+          this.setState({ repos: data });
+        }
+      });
+  }
+
+  renderVals() {
+    const fallback = [
+        {
+          name: 'jsonforms-designer',
+          lang: 'TypeScript',
+          langColor: '#4f9cf9',
+          url: 'https://github.com/TheMightyNighty/jsonforms-designer',
+          ogUrl: 'https://opengraph.githubassets.com/1/TheMightyNighty/jsonforms-designer',
+          desc: 'Visueller Editor für JSONForms-Schemas – erstellt UI-Schemata per Drag &amp; Drop, ohne manuelles JSON-Schreiben.',
+        },
+        {
+          name: 'ImpExpNL',
+          lang: 'PHP',
+          langColor: '#a78bfa',
+          url: 'https://github.com/TheMightyNighty/ImpExpNL',
+          ogUrl: 'https://opengraph.githubassets.com/1/TheMightyNighty/ImpExpNL',
+          desc: 'Modernisierte Import/Export-Extension für Typo3. Wartbar gebaut, nicht hingefrickelt.',
+        },
+      ];
+    return {
+      repos: this.state.repos || fallback,
+    };
+  }
+}
+</script>
+</body>
+</html>
