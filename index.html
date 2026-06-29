@@ -333,8 +333,7 @@
     <div class="project-grid" style="margin-bottom:20px;">
       <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
-          <x-import component-from-global-scope="image-slot" id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot ablegen" hint-size="100%,148px" style="width:100%;height:148px;display:block;flex:0 0 auto;">
-          </x-import>
+          <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:100%;height:148px;display:block;flex:0 0 auto;"></image-slot>
           <div style="height:3px;background:{{ r.langColor }};flex:0 0 auto;"></div>
           <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;text-decoration:none;color:#e7e9ec;flex:1;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
