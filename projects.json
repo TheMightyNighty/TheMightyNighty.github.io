@@ -20,5 +20,16 @@
     "stars": 0,
     "forks": 0,
     "updatedAt": "2026-06-21T18:34:32Z"
+  },
+  {
+    "name": "SightMetrics",
+    "desc": "",
+    "lang": "Shell",
+    "langColor": "#89e051",
+    "url": "https://github.com/TheMightyNighty/SightMetrics",
+    "ogUrl": "./screenshots/SightMetrics.png",
+    "stars": 0,
+    "forks": 0,
+    "updatedAt": "2026-06-26T08:18:00Z"
   }
 ]
