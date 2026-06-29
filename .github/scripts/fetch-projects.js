@@ -21,8 +21,7 @@ const USERNAME = 'TheMightyNighty';
 const FEATURED_REPOS = [
   'jsonforms-designer',
   'ImpExpNL',
-  // TODO: Repo-Namen des Matomo-Ersatzes hier eintragen sobald er angelegt ist
-  // 'typo3-analytics',
+  'SightMetrics',
 ];
 
 const LANG_COLORS = {
