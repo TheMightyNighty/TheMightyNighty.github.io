@@ -12,7 +12,7 @@
   },
   {
     "name": "ImpExpNL",
-    "desc": "Modernisierte Import/Export-Extension für Typo3. Wartbar gebaut, nicht hingefrickelt.",
+    "desc": "Modernisierte Import/Export-Extension für Typo3. Speziell für regelmäßigen Austausch von großen Seitenbäumen.",
     "lang": "PHP",
     "langColor": "#a78bfa",
     "url": "https://github.com/TheMightyNighty/ImpExpNL",
