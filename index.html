@@ -287,9 +287,8 @@
   ::selection{background:#f59e0b33;color:#e7e9ec;}
   .page-canvas{padding:48px 20px 64px;}
   .page-card{max-width:960px;margin:0 auto;background:#111519;border:1px solid #1e242c;border-radius:12px;overflow:hidden;box-shadow:0 4px 48px rgba(0,0,0,.55);}
-  .project-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-  @media(max-width:860px){.project-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.project-grid{grid-template-columns:1fr;}}
+  .project-grid{display:flex;flex-direction:column;gap:14px;}
+  @media(max-width:560px){.project-grid{gap:12px;}}
   @media(max-width:1000px){
     .page-canvas{padding:0;}
     .page-card{border-radius:0;border-left:none;border-right:none;box-shadow:none;}
@@ -385,10 +384,9 @@
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:24px;">Projekte</div>
     <div class="project-grid" style="margin-bottom:20px;">
       <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
-        <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
-          <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:100%;height:148px;display:block;flex:0 0 auto;"></image-slot>
-          <div style="height:3px;background:{{ r.langColor }};flex:0 0 auto;"></div>
-          <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;text-decoration:none;color:#e7e9ec;flex:1;">
+        <div style="display:flex;flex-direction:row;gap:16px;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;align-items:stretch;" style-hover="border-color:#2a313b;">
+          <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:200px;height:200px;display:block;flex:0 0 auto;"></image-slot>
+          <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;text-decoration:none;color:#e7e9ec;flex:1;border-left:3px solid {{ r.langColor }};">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
               <span style="font-size:14px;font-weight:600;letter-spacing:-.01em;line-height:1.2;">{{ r.name }}</span>
               <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:{{ r.langColor }};letter-spacing:.08em;white-space:nowrap;flex:0 0 auto;">{{ r.lang }}</span>
