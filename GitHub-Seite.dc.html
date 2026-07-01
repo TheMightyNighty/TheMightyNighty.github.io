@@ -64,7 +64,7 @@
     <div class="project-grid" style="margin-bottom:20px;">
       <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
-          <div class="proj-screenshot" style="width:100%;height:420px;flex:0 0 auto;background:#0c0f13;">
+          <div class="proj-screenshot" style="width:100%;aspect-ratio:16/9;height:auto;flex:0 0 auto;background:#0c0f13;">
             <x-import component-from-global-scope="image-slot"
               id="{{ r.name }}-img"
               src="{{ r.ogUrl }}"

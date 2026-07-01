@@ -388,7 +388,7 @@
     <div class="project-grid" style="margin-bottom:20px;">
       <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
         <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
-          <div class="proj-screenshot" style="width:100%;height:420px;flex:0 0 auto;background:#0c0f13;">
+          <div class="proj-screenshot" style="width:100%;aspect-ratio:16/9;height:auto;flex:0 0 auto;background:#0c0f13;">
             <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:100%;height:100%;display:block;"></image-slot>
           </div>
           <div style="height:3px;background:{{ r.langColor }};flex:0 0 auto;"></div>
@@ -454,7 +454,7 @@ class Component extends DCLogic {
           lang: 'TypeScript',
           langColor: '#4f9cf9',
           url: 'https://github.com/TheMightyNighty/jsonforms-designer',
-          ogUrl: 'https://opengraph.githubassets.com/1/TheMightyNighty/jsonforms-designer',
+          ogUrl: null,
           desc: 'Visueller Editor für JSONForms-Schemas – erstellt UI-Schemata per Drag &amp; Drop, ohne manuelles JSON-Schreiben.',
         },
         {
@@ -462,8 +462,16 @@ class Component extends DCLogic {
           lang: 'PHP',
           langColor: '#a78bfa',
           url: 'https://github.com/TheMightyNighty/ImpExpNL',
-          ogUrl: 'https://opengraph.githubassets.com/1/TheMightyNighty/ImpExpNL',
-          desc: 'Modernisierte Import/Export-Extension für Typo3. Wartbar gebaut, nicht hingefrickelt.',
+          ogUrl: './screenshots/ImpExpNL.png',
+          desc: 'Modernisierte Export Import Extension für Typo3',
+        },
+        {
+          name: 'SightMetrics',
+          lang: 'Shell',
+          langColor: '#89e051',
+          url: 'https://github.com/TheMightyNighty/SightMetrics',
+          ogUrl: './screenshots/SightMetrics.png',
+          desc: 'Performance & Visibility Monitoring Dashboard',
         },
       ];
     return {
