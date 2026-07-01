@@ -5,7 +5,7 @@
     "lang": "TypeScript",
     "langColor": "#4f9cf9",
     "url": "https://github.com/TheMightyNighty/jsonforms-designer",
-    "ogUrl": "https://opengraph.githubassets.com/1/TheMightyNighty/jsonforms-designer",
+    "ogUrl": null,
     "stars": 0,
     "forks": 0,
     "updatedAt": "2026-06-22T05:12:56Z"
@@ -23,7 +23,7 @@
   },
   {
     "name": "SightMetrics",
-    "desc": "",
+    "desc": "Performance & Visibility Monitoring Dashboard",
     "lang": "Shell",
     "langColor": "#89e051",
     "url": "https://github.com/TheMightyNighty/SightMetrics",
