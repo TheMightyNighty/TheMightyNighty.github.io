@@ -287,8 +287,11 @@
   ::selection{background:#f59e0b33;color:#e7e9ec;}
   .page-canvas{padding:48px 20px 64px;}
   .page-card{max-width:960px;margin:0 auto;background:#111519;border:1px solid #1e242c;border-radius:12px;overflow:hidden;box-shadow:0 4px 48px rgba(0,0,0,.55);}
-  .project-grid{display:flex;flex-direction:column;gap:14px;}
-  @media(max-width:560px){.project-grid{gap:12px;}}
+  .project-grid{display:flex;flex-direction:column;gap:20px;}
+  .proj-screenshot{overflow:hidden;}
+  .proj-screenshot image-slot{display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94);}
+  .proj-screenshot:hover image-slot{transform:scale(1.05);}
+  @media(max-width:560px){.project-grid{gap:16px;}}
   @media(max-width:1000px){
     .page-canvas{padding:0;}
     .page-card{border-radius:0;border-left:none;border-right:none;box-shadow:none;}
@@ -384,15 +387,20 @@
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#f59e0b;margin-bottom:24px;">Projekte</div>
     <div class="project-grid" style="margin-bottom:20px;">
       <sc-for list="{{ repos }}" as="r" hint-placeholder-count="3">
-        <div style="display:flex;flex-direction:row;gap:16px;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;align-items:stretch;" style-hover="border-color:#2a313b;">
-          <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:200px;height:200px;display:block;flex:0 0 auto;"></image-slot>
-          <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:8px;padding:16px 18px 18px;text-decoration:none;color:#e7e9ec;flex:1;border-left:3px solid {{ r.langColor }};">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-              <span style="font-size:14px;font-weight:600;letter-spacing:-.01em;line-height:1.2;">{{ r.name }}</span>
-              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:{{ r.langColor }};letter-spacing:.08em;white-space:nowrap;flex:0 0 auto;">{{ r.lang }}</span>
+        <div style="display:flex;flex-direction:column;background:#13171c;border:1px solid #1e242c;border-radius:6px;overflow:hidden;transition:border-color .15s;" style-hover="border-color:#2a313b;">
+          <div class="proj-screenshot" style="width:100%;height:420px;flex:0 0 auto;background:#0c0f13;">
+            <image-slot id="{{ r.name }}-img" src="{{ r.ogUrl }}" shape="rect" fit="cover" placeholder="Screenshot" style="width:100%;height:100%;display:block;"></image-slot>
+          </div>
+          <div style="height:3px;background:{{ r.langColor }};flex:0 0 auto;"></div>
+          <a href="{{ r.url }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;text-decoration:none;color:#e7e9ec;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="font-size:18px;font-weight:700;letter-spacing:-.01em;">{{ r.name }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:{{ r.langColor }};letter-spacing:.08em;background:#13171c;border:1px solid #1e242c;border-radius:4px;padding:3px 10px;">{{ r.lang }}</span>
             </div>
-            <div style="font-size:13px;line-height:1.55;color:#8a99aa;flex:1;">{{ r.desc }}</div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#738494;letter-spacing:.06em;margin-top:2px;" style-hover="color:#f59e0b;">Repo ansehen →</div>
+            <div style="display:flex;align-items:center;gap:20px;flex:1;justify-content:space-between;">
+              <div style="font-size:14px;line-height:1.55;color:#8a99aa;">{{ r.desc }}</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#738494;letter-spacing:.06em;white-space:nowrap;flex:0 0 auto;" style-hover="color:#f59e0b;">Repo ansehen →</div>
+            </div>
           </a>
         </div>
       </sc-for>
