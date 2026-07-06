@@ -19,17 +19,17 @@
     "ogUrl": "./screenshots/ImpExpNL.png",
     "stars": 0,
     "forks": 0,
-    "updatedAt": "2026-06-21T18:34:32Z"
+    "updatedAt": "2026-07-05T14:46:31Z"
   },
   {
     "name": "SightMetrics",
-    "desc": "Performance & Visibility Monitoring Dashboard",
-    "lang": "Shell",
-    "langColor": "#89e051",
+    "desc": "SightMetrics wertet Webserver-Logs (Apache/nginx) aus und stellt die Ergebnisse als Dashboard in einem TYPO3-Backend-Modul dar – ohne JavaScript-Tracker, ohne Cookies, ohne dass Besucherdaten das eigene System verlassen.",
+    "lang": "PHP",
+    "langColor": "#a78bfa",
     "url": "https://github.com/TheMightyNighty/SightMetrics",
     "ogUrl": "./screenshots/SightMetrics.png",
-    "stars": 1,
-    "forks": 0,
-    "updatedAt": "2026-06-26T08:18:00Z"
+    "stars": 2,
+    "forks": 1,
+    "updatedAt": "2026-07-03T04:38:51Z"
   }
 ]
