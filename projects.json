@@ -1,16 +1,5 @@
 [
   {
-    "name": "jsonforms-designer",
-    "desc": "Visual form designer for JSONForms — optimized for government/civic forms",
-    "lang": "TypeScript",
-    "langColor": "#4f9cf9",
-    "url": "https://github.com/TheMightyNighty/jsonforms-designer",
-    "ogUrl": "./screenshots/jsonforms-designer.png",
-    "stars": 1,
-    "forks": 0,
-    "updatedAt": "2026-10-05T12:39:35Z"
-  },
-  {
     "name": "ImpExpNL",
     "desc": "Modernisierte Export Import Extension für Typo3",
     "lang": "PHP",
@@ -30,6 +19,6 @@
     "ogUrl": "./screenshots/SightMetrics.png",
     "stars": 3,
     "forks": 0,
-    "updatedAt": "2026-09-29T18:09:06Z"
+    "updatedAt": "2026-10-08T18:14:35Z"
   }
 ]
